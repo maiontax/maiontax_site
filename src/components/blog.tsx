@@ -2,7 +2,7 @@ import Image from "next/image";
 import Title from "./title";
 import Button from "./button";
 import { useEffect, useState } from "react";
-import { PostItemType } from "../blog/page";
+import { PostItemType } from "../app/blog/page";
 import { BASE_URL } from "@/src/config/general";
 
 export default function Blog() {

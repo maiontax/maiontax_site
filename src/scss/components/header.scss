@@ -21,10 +21,24 @@
         justify-content: flex-end;
         align-items: center;
 
-        img.icon-cell {
-            width: 13px;
-            margin-right: 10px;
+        .cellphone-button {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: $white;
+            
+            &:hover {
+                opacity: 0.7;
+                cursor: pointer;
+            }
+
+            img.icon-cell {
+                width: 13px;
+                margin-right: 10px;
+            }
+
         }
+
 
         .social-container{
             display: flex;
@@ -34,6 +48,11 @@
             margin-left: 10px;
 
             .icon-social {
+                &:hover {
+                    opacity: 0.7;
+                    cursor: pointer;
+                }
+
                 display: flex;
                 justify-content: center;
                 align-items: center;

@@ -3,8 +3,8 @@ import Image from "next/image";
 
 import { BASE_URL } from "@/src/config/general";
 import { useEffect, useState } from "react";
-import Button from "../components/button";
-import Title from "../components/title";
+import Button from "../../components/button";
+import Title from "../../components/title";
 
 
 export type PostItemType = {

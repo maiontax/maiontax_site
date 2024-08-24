@@ -6,8 +6,8 @@ import InstagramIcon from "@/public/images/instagram.svg";
 import Link from "next/link";
 import { BASE_URL } from "@/src/config/general";
 import { useEffect, useState } from "react";
-import Title from "../../components/title";
-import Button from "../../components/button";
+import Title from "../../../components/title";
+import Button from "../../../components/button";
 
 
 export type PostItemType = {

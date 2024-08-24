@@ -1,0 +1,53 @@
+.page-contactus {
+    .social-container {
+        display: flex;
+        justify-content: center;
+
+        .icon-social {
+           svg {
+             width: 30px;
+             height: 30px;
+           }
+
+           &:first-child {
+            margin-right: 10px;
+           }
+        }
+    }
+
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        .form {
+            width: 60%;
+            margin-bottom: 20px;
+
+            .component-input {
+                textarea {
+                    max-width: 100%;
+                    margin-bottom: 0 !important;
+                }
+            }
+        }
+
+        .send-button {
+            margin-top: 20px;
+            width: 60%;
+        }
+
+        .police-term {
+            input[type=checkbox] {
+                margin-right: 10px;
+            }
+
+            font-weight: 600;
+        }
+    }
+
+}

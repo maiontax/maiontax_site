@@ -18,7 +18,7 @@ export default function Header() {
         setTheme(pathname !== "/" ? "white" : "transparent");
 
         const handleScroll = () => {
-            const sections = ['services', 'howtoworks', 'contactus'];
+            const sections = ['services', 'howtoworks', 'faleconosco'];
             let foundActiveSection = false;
 
             for (let i = 0; i < sections.length; i++) {
@@ -82,14 +82,16 @@ export default function Header() {
         <header className={`component-header container-view ${theme}`}>
             {theme === "transparent" && pathname === "/" && (
                 <div className='contact-container'>
-                    <Image className="icon-cell" src={require("@/public/images/phone.svg")} alt='Phone' />
-                    <span>+55(11)4218-7960</span>
+                    <Link href="tel:1142187960" className="cellphone-button" >
+                        <Image className="icon-cell" src={require("@/public/images/phone.svg")} alt='Phone' />
+                        <span>+55(11)4218-7960</span>
+                    </Link>
 
                     <div className='social-container'>
-                        <Link className="icon-social" href="https://www.linkedin.com/company/maion-tax-solu-es-tribut-rias-e-corporativas/posts/?feedView=all">
+                        <Link target='_blank' className="icon-social" href="https://www.linkedin.com/company/maion-tax-solu-es-tribut-rias-e-corporativas/posts/?feedView=all">
                             <Image color='#fff' src={require("@/public/images/linkedin.svg")} alt='Linkedn' />
                         </Link>
-                        <Link className="icon-social" href="https://www.linkedin.com/company/maion-tax-solu-es-tribut-rias-e-corporativas/posts/?feedView=all">
+                        <Link target='_blank' className="icon-social" href="https://www.instagram.com/maiontax/">
                             <Image color='#fff' src={require("@/public/images/instagram.svg")} alt='Instagram' />
                         </Link>
                     </div>
@@ -120,7 +122,7 @@ export default function Header() {
                         <a className={activeSection === 'howtoworks' ? 'active' : ''} href="#howtoworks" onClick={(e) => handleClick(e, 'howtoworks')}>COMO FUNCIONA</a>
                     </li>
                     <li>
-                        <a className={activeSection === 'contactus' ? 'active' : ''} href="#contactus" onClick={(e) => handleClick(e, 'contactus')}>FALE CONOSCO</a>
+                        <a className={pathname === '/faleconosco' ? 'active' : ''} href="/faleconosco">FALE CONOSCO</a>
                     </li>
                     <li>
                         <Link className={pathname === "/blog" ? 'active' : ''} href="/blog">BLOG</Link>

@@ -1,0 +1,32 @@
+.component-input {
+    position: relative;
+    margin-bottom: 20px;
+
+    .label {
+        background-color: $white;
+        top: -10px;
+        left: 10px;
+        position: absolute;
+        padding: 0 10px;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 10px 15px;
+        outline: 0;
+        border-radius: $border-radius;
+        border: 2px solid #ccc;
+
+        font-size: large;
+
+        &:focus {
+            border-color: $secondary-color;
+        }
+    }
+
+    .error {
+        color: red;
+    }
+}

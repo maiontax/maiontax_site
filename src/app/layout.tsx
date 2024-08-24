@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Head from 'next/head';
 import { Poppins, Montserrat, Cardo } from "next/font/google";
-import "./scss/_global.scss"
+import "../scss/_global.scss"
 import 'animate.css';
 
 

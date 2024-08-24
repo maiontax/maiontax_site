@@ -1,16 +1,16 @@
 "use client"
 
-import Description from "../components/description";
-import Header from "../components/header";
-import KnowMore from "../components/knowMore";
-import Services from "../components/services";
-import Blog from "../components/blog";
+import Description from "../../components/description";
+import Header from "../../components/header";
+import KnowMore from "../../components/knowMore";
+import Services from "../../components/services";
+import Blog from "../../components/blog";
 import Image from "next/image";
 import { useEffect } from "react";
 import ReactPlayer from 'react-player'
-import HowToWork from "../components/howToWork";
-import Units from "../components/units";
-import Customers from "../components/customers";
+import HowToWork from "../../components/howToWork";
+import Units from "../../components/units";
+import Customers from "../../components/customers";
 
 export default function Home() {
     useEffect(() => {

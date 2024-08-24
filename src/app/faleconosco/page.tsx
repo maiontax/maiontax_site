@@ -1,5 +1,5 @@
 "use client"
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Title from "../../components/title";
 import { useForm, SubmitHandler } from "react-hook-form"
 import Input from "@/src/components/input";
@@ -31,6 +31,7 @@ export type PostItemType = {
 export default function ContactUs() {
     const [checked, setChecked] = useState<boolean>()
     const widgetRef = useRef<HTMLElement>(null)
+    const [isWidgetLoaded, setIsWidgetLoaded] = useState<boolean>(false);
     const {
         register,
         handleSubmit,
@@ -43,6 +44,17 @@ export default function ContactUs() {
     const handleAcceptTerms = (e: any) => {
         setChecked(e.target.checked)
     }
+
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.src = "URL_TO_ALTCHAWIDGET_SCRIPT";
+        script.onload = () => setIsWidgetLoaded(true);
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
 
     return (
         <main className="page-contactus container-view">
@@ -65,12 +77,14 @@ export default function ContactUs() {
                     </form>
                     <div className="police-term"><input type="checkbox" onChange={handleAcceptTerms} />Li e Concordo com os termos de <Link href="/politica-privacidade">Política de Privacidade</Link> do site. </div>
                 </div>
-                <altcha-widget
-                    ref={widgetRef}
-                    style={{
-                        '--altcha-max-width': '100%',
-                    }}
-                ></altcha-widget>
+                {isWidgetLoaded && (
+                    <altcha-widget
+                        ref={widgetRef}
+                        style={{
+                            '--altcha-max-width': '100%',
+                        }}
+                    ></altcha-widget>
+                )}
                 <div className="send-button">
                     <Button title="Enviar" onClick={handleSubmit(onSubmit)} />
                 </div>

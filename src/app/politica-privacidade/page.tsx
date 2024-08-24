@@ -33,7 +33,7 @@ export default function PrivacyPolice() {
             <p>Como é prática comum em quase todos os sites profissionais, este site usa cookies, que são pequenos arquivos baixados
                 no seu computador, para melhorar sua experiência. Esta página descreve quais informações eles coletam, como as
                 usamos e por que às vezes precisamos armazenar esses cookies. Também compartilharemos como você pode impedir que
-                esses cookies sejam armazenados, no entanto, isso pode fazer o downgrade ou "quebrar" certos elementos da
+                esses cookies sejam armazenados, no entanto, isso pode fazer o downgrade ou quebrar certos elementos da
                 funcionalidade do site.</p>
             <h3>Como usamos os cookies?</h3>
             <p>Utilizamos cookies por vários motivos, detalhados abaixo. Infelizmente, na maioria dos casos, não existem opções

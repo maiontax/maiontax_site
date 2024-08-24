@@ -115,7 +115,7 @@ export default function PrivacyPolice() {
                 <li> <a target='_blank' rel='noopener noreferrer' href='https://support.google.com/accounts/answer/61416?hl=en'>
                     Google Chrome </a> </li>
                 <li> <a target='_blank' rel='noopener noreferrer'
-                    href='https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop?redirectlocale=en-US&amp;redirectslug=enable-and-disable-cookies-website-preferences'>
+                    href='https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop?redirectlocale=en-US'>
                     Firefox </a> </li>
                 <li> <a target='_blank' rel='noopener noreferrer'
                     href='https://support.microsoft.com/pt-br/help/17442/windows-internet-explorer-delete-manage-cookies'>

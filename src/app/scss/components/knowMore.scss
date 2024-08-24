@@ -1,0 +1,90 @@
+.component-know-more {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $white;
+ 
+    .know-more-image-container {
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .know-more-square {
+            width: 400px;
+            height: 360px;
+            background-color: $primary-color;
+        }
+
+        .know-more-image {
+            margin-left: -250px;
+            width: 400px;
+            height: 400px;
+            border-radius: 200px;
+            background-image: url("../../../../public/images/know-more.webp");
+            background-size: cover;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+            transition: all 0.3s ease-in-out;
+
+             
+           
+        }
+
+        @include desktop_down {
+            .know-more-square {
+                width: 300px;
+                height: 180px;
+                background-color: $primary-color;
+            }
+    
+
+            .know-more-image {
+                width: 300px;
+                height: 300px;
+                border-radius: 150px;
+            }
+        }
+    }
+
+    .know-more-description {
+        margin: 0 auto;
+        max-width: 900px;
+
+        span.know-more-title {
+            font-size: 2.625rem;
+            font-weight: 700;
+            color: $secondary-color;
+        }
+
+        span.know-more-description {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: $black;
+        }
+
+        .know-more-button {
+            margin-top: 10px;
+            max-width: 350px;
+        }
+    }
+
+    
+    @include desktop_down {
+        height: auto;
+        padding: 40px 0;
+        flex-direction: column;
+
+        .know-more-image-container {
+            width: 100%;
+        }
+
+        .know-more-description {
+            margin-top: 10px;
+            padding: 0 20px;
+        }
+    }
+  
+}

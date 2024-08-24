@@ -1,0 +1,211 @@
+.page-blog {
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .post-header {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .post-image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    .breadcrumbs {
+        margin-top: 10px;
+        color: #999;
+        font-size: 0.9rem;
+    }
+    
+    .breadcrumbs a {
+        color: #999;
+        text-decoration: none;
+    }
+    
+    .breadcrumbs a:hover {
+        text-decoration: underline;
+    }
+    
+    .post-content {
+        flex: 2;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.068);
+        margin-right: 20px;
+    }
+    
+    .post-title {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    
+    .post-date {
+        font-size: 0.9rem;
+        color: #777;
+        margin-bottom: 20px;
+    }
+    
+    .share-buttons {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        .icon-social {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25px;
+            height: 25px;
+            background-color: $secondary-color;
+            border-radius: $border-radius;
+            margin-left: 5px;
+            img {
+                width: 15px;
+            }
+        }
+    }
+    
+    
+    .post-text {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        text-align: justify;
+    }
+    
+    .sidebar {
+        flex: 1;
+        padding: 20px;
+    }
+    
+    .sidebar h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .newsletter-form label {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+    
+    .newsletter-form input {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    
+    .most-read {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .most-read li {
+        margin-bottom: 10px;
+    }
+    
+    .most-read a {
+        color: #333;
+        text-decoration: none;
+    }
+    
+    .most-read a:hover {
+        text-decoration: underline;
+    }
+
+
+    .component-description-blog {
+        background-image: url("../../../../public/images/background.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: relative;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-bottom: 70px;
+    
+        .description-franchisee {
+            max-width: 500px;
+            h1 {
+                color: $secondary-color;
+                font-size: 2.625rem;
+            }
+            span {
+                color: $white;
+                font-size: 1.25rem;
+                font-weight: 700;
+            }
+        }
+    
+        .description-information {
+            img {
+                width: 100px;
+                height: 100px;
+            }
+    
+            h1 {
+                color: $secondary-color;
+                margin: 10px 0;
+                font-size: 1.25rem;
+            }
+            span {
+                color: $white;
+                font-size: 1rem;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .container-posts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+
+        .post-item {
+            display: flex;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.068);
+            border-radius: 20px;
+            overflow: hidden;
+    
+            img {
+                width: 35%;
+                height: 100%;
+            }
+    
+            .post-data {
+                padding: 20px;
+    
+                p.date {
+                    text-align: right;
+                    font-weight: 600;
+                    margin-top: -20px;
+                    margin-bottom: 20px;
+                }
+    
+                .button-container {
+                    margin-top: 20px;
+                }
+            }
+    
+        }
+    }
+}

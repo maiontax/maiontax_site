@@ -1,0 +1,120 @@
+.component-howtowork {
+  background-color: #f7f7f7;
+  overflow: hidden;
+  padding: 40px;
+
+  .timeline-container {
+    .timeline {
+      width: 90%;
+      max-width: 1170px;
+      margin: 0 auto;
+      position: relative;
+      padding: 2em 0;
+
+      @include desktop_down {
+        display: flex;
+        flex-direction: column;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 4px;
+        background-color: $secondary-color;
+        left: 50%;
+        margin-left: -2px;
+        border-radius: 10px;
+
+        @include desktop_down {
+          display: none;
+        }
+      }
+    }
+
+    .timeline-item {
+      position: relative;
+      margin: 4em 0;
+      height: 280px;
+
+      @include desktop_down {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 100%;
+        height: auto;
+        margin: 2em 0;
+      }
+
+      .timeline-icon {
+        display: flex;
+        background: $secondary-color;
+        color: #fff;
+        justify-content: center;
+        align-items: center;
+        width: 80px;
+        height: 80px;
+        left: 50%;
+        margin-left: -40px;
+        position: absolute;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+
+        @include desktop_down {
+          display: none;
+        }
+      }
+
+      .timeline-item-content {
+        border-radius: 3px;
+        position: relative;
+        box-shadow: 0 3px 0 #ddd;
+        margin-left: 0;
+        padding: 1.5em;
+        width: 44%;
+        background: rgb(27, 41, 67);
+        color: #fff;
+
+        & > div {
+          min-height: 1px;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          height: 15px;
+          width: 15px;
+          transform: rotate(45deg);
+          background: rgb(27, 41, 67);
+          top: 20px;
+        }
+
+        &.right::before {
+          left: -5px;
+        }
+
+        &.left::before {
+          right: -5px;
+        }
+
+        @include desktop_down {
+          width: 100%;
+
+          &.right::before,
+          &.left::before {
+            display: none;
+          }
+        }
+
+        ul {
+          padding: 20px;
+
+          li {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}

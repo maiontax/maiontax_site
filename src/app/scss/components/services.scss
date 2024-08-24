@@ -1,0 +1,87 @@
+.component-services {
+    margin: 0 auto;
+    width: 100%;
+    background-color: $primary-color;
+    padding-top: 10px;
+    padding-bottom: 40px;
+
+    .services-title {
+        text-align: center;
+        margin: 20px 0 30px;
+        span {
+            font-size: 25px;
+            color: $white;
+            border-bottom: 2px solid $secondary-color;
+        }
+    }
+
+    .services-container-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        
+        &.show {
+            .services-card {
+              opacity: 1;
+              transform: translateX(0px); 
+            }
+        }
+    
+        &.hidden {
+            .services-card {
+              opacity: 0;
+              transform: translateX(-100px); 
+            }
+        }
+
+        .services-card { 
+            opacity: 0;
+            transform: translateX(-100px);
+            
+            margin: 0 auto; 
+            max-width: 90%;
+            text-align: center;
+            background-color: $white;
+            border-radius: $border-radius;
+            padding: 20px 50px;
+            transition: 1s all; 
+    
+    
+            .services-card-title {
+                color: $secondary-color;
+            }
+    
+            .services-card-description {
+                color: $black;
+            }
+    
+            .services-card-confirmation {
+                color: $primary-color;
+            }
+
+
+            &:nth-child(2) {
+                transition-delay: 400ms;
+            }
+            &:nth-child(3) {
+                transition-delay: 600ms;
+            }
+            &:nth-child(4) {
+                transition-delay: 800ms;
+            }
+            &:nth-child(5) {
+                transition-delay: 1000ms;
+            }
+            &:nth-child(6) {
+                transition-delay: 1200ms;
+            }
+        } 
+    }
+
+    @include desktop_down {
+        .services-container-cards {
+            grid-template-columns: 1fr;
+        }
+    }
+   
+} 

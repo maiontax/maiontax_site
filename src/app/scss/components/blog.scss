@@ -1,0 +1,116 @@
+.component-blog {
+    background-color: $primary-color;
+    padding-bottom: 60px;
+   
+    .component-blog-posts {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+        margin-bottom: 30px;
+
+        &.show {
+            .post-item {
+              opacity: 1;
+              transform: translateY(0px); 
+            }
+        }
+    
+        &.hidden {
+            .post-item {
+              opacity: 0;
+              transform: translateY(-100px); 
+            }
+        }
+    }
+
+    .component-blog-button {
+        margin: 0 auto;
+        width: 300px;
+    }
+
+    .post-item {
+        opacity: 0;
+        transform: translateY(100px);
+        transition: 1s all; 
+
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+
+        .post-item-image {
+            .item-image-cover {
+                width: 400px;
+                height: 300px;
+                top: 0;
+                position: absolute;
+            }
+
+
+            img {
+                width: 100%;
+                border-radius: $border-radius;                
+            }
+
+            .tag {
+                left: 10px;
+                bottom: 30px;
+                position: absolute;
+                border-radius: $border-radius;
+                padding: 2px 5px;
+                background-color: $secondary-color;
+
+                font-weight: bold;
+                color: $white;
+            }
+        }
+
+        &:nth-child(2) {
+            transition-delay: 400ms;
+        }
+        &:nth-child(3) {
+            transition-delay: 600ms;
+        }
+    
+
+        .post-data {
+            color: $white;
+            margin: 0 auto;
+            background-color: $white;
+            padding: 15px; 
+            margin-top: -20px;
+            border-radius: 0 0 5px 5px;
+
+
+            h2.post-title {
+                font-size: $font-large;
+                color: $primary-color;
+                margin-bottom: 10px;
+            }
+
+            span.post-content {
+                font-size: $font-small;
+                color: $black;
+            }
+         
+            p.post-date {
+                width: 100%;
+                text-align: right;
+                font-size: $font-small;
+            }
+        }
+
+        .post-button {
+            width: 50%;
+            margin-top: 10px;
+        }
+    }
+
+
+    @include desktop_down {
+        .component-blog-posts {
+            grid-template-columns: repeat(1, 1fr);    
+        }
+    }
+}

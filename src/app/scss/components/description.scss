@@ -1,0 +1,54 @@
+.component-description {
+    margin-top: 70px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 70px;
+
+    .description-franchisee {
+        max-width: 500px;
+        h1 {
+            color: $secondary-color;
+            font-size: 2.625rem;
+        }
+        span {
+            color: $white;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+    }
+
+    .description-information {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 100px;
+            height: 100px;
+        }
+
+        h1 {
+            color: $secondary-color;
+            margin: 10px 0;
+            font-size: 1.25rem;
+        }
+        span {
+            color: $white;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+    }
+
+
+    @include desktop_down {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 40px;
+
+        .description-franchisee {
+            max-width: 100%;
+            text-align: center;
+        }
+    }
+
+}

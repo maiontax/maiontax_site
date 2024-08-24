@@ -8,7 +8,7 @@ import Icon_Linkedn from "@/src/Icon/linkedn";
 import { COLOR_PRIMARY } from "@/src/config/general";
 import Icon_Instagram from "@/src/Icon/instagram";
 import Button from "@/src/components/button";
-import 'altcha'
+// import 'altcha'
 
 type Inputs = {
     name: string
@@ -30,8 +30,6 @@ export type PostItemType = {
 
 export default function ContactUs() {
     const [checked, setChecked] = useState<boolean>()
-    const widgetRef = useRef<HTMLElement>(null)
-    const [isWidgetLoaded, setIsWidgetLoaded] = useState<boolean>(false);
     const {
         register,
         handleSubmit,
@@ -44,17 +42,6 @@ export default function ContactUs() {
     const handleAcceptTerms = (e: any) => {
         setChecked(e.target.checked)
     }
-
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src = "URL_TO_ALTCHAWIDGET_SCRIPT";
-        script.onload = () => setIsWidgetLoaded(true);
-        document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
 
     return (
         <main className="page-contactus container-view">
@@ -77,14 +64,6 @@ export default function ContactUs() {
                     </form>
                     <div className="police-term"><input type="checkbox" onChange={handleAcceptTerms} />Li e Concordo com os termos de <Link href="/politica-privacidade">Política de Privacidade</Link> do site. </div>
                 </div>
-                {isWidgetLoaded && (
-                    <altcha-widget
-                        ref={widgetRef}
-                        style={{
-                            '--altcha-max-width': '100%',
-                        }}
-                    ></altcha-widget>
-                )}
                 <div className="send-button">
                     <Button title="Enviar" onClick={handleSubmit(onSubmit)} />
                 </div>

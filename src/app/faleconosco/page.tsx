@@ -8,8 +8,7 @@ import Icon_Linkedn from "@/src/Icon/linkedn";
 import { COLOR_PRIMARY } from "@/src/config/general";
 import Icon_Instagram from "@/src/Icon/instagram";
 import Button from "@/src/components/button";
-import 'altcha'
-import Captcha from "@/src/components/capthca";
+import { Altcha } from "react-altcha";
 
 type Inputs = {
     name: string
@@ -63,7 +62,10 @@ export default function ContactUs() {
                         <Input type="email" error={errors.email} {...register("email", { required: "Campo obrigatorio!" })} placeholder="E-mail" label="E-mail" />
                         <Input type="phone" error={errors.phone} {...register("phone", { required: "Campo obrigatorio!" })} placeholder="Telefone" label="Telefone" />
                         <Input error={errors.message} {...register("message", { required: "Campo obrigatorio!" })} multipleLine placeholder="Mensagem" label="Mensagem" />
-                        <Captcha />
+                        <Altcha
+                            challengeurl={"https://example.com/api/captcha/challenge"}
+                            verifyurl={"https://example.com/api/captcha/verify"}
+                        />
                         <div className="police-term"><input type="checkbox" onChange={handleAcceptTerms} />Li e Concordo com os termos de <Link href="/politica-privacidade">Política de Privacidade</Link> do site. </div>
                     </form>
                 </div>

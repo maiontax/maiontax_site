@@ -3,6 +3,10 @@
     max-width: 70%;
     text-align: justify;
     color: #5a5a5a;
+
+    @include desktop_down {
+        max-width: 90%;
+    }
     
     margin-bottom: 50px;
 

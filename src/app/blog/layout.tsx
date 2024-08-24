@@ -1,6 +1,5 @@
 import React from "react"
 import Header from "../../components/header"
-import Image from "next/image"
 
 type ILayoutProps = {
     children: React.ReactNode

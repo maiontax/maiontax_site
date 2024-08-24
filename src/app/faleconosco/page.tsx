@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Title from "../../components/title";
 import { useForm, SubmitHandler } from "react-hook-form"
 import Input from "@/src/components/input";
@@ -8,7 +8,8 @@ import Icon_Linkedn from "@/src/Icon/linkedn";
 import { COLOR_PRIMARY } from "@/src/config/general";
 import Icon_Instagram from "@/src/Icon/instagram";
 import Button from "@/src/components/button";
-// import 'altcha'
+import 'altcha'
+import Captcha from "@/src/components/capthca";
 
 type Inputs = {
     name: string
@@ -43,6 +44,7 @@ export default function ContactUs() {
         setChecked(e.target.checked)
     }
 
+
     return (
         <main className="page-contactus container-view">
             <Title title="Fale conosco" type="secondary" />
@@ -61,8 +63,9 @@ export default function ContactUs() {
                         <Input type="email" error={errors.email} {...register("email", { required: "Campo obrigatorio!" })} placeholder="E-mail" label="E-mail" />
                         <Input type="phone" error={errors.phone} {...register("phone", { required: "Campo obrigatorio!" })} placeholder="Telefone" label="Telefone" />
                         <Input error={errors.message} {...register("message", { required: "Campo obrigatorio!" })} multipleLine placeholder="Mensagem" label="Mensagem" />
+                        <Captcha />
+                        <div className="police-term"><input type="checkbox" onChange={handleAcceptTerms} />Li e Concordo com os termos de <Link href="/politica-privacidade">Política de Privacidade</Link> do site. </div>
                     </form>
-                    <div className="police-term"><input type="checkbox" onChange={handleAcceptTerms} />Li e Concordo com os termos de <Link href="/politica-privacidade">Política de Privacidade</Link> do site. </div>
                 </div>
                 <div className="send-button">
                     <Button title="Enviar" onClick={handleSubmit(onSubmit)} />

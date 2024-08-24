@@ -11,6 +11,7 @@ import ReactPlayer from 'react-player'
 import HowToWork from "../../components/howToWork";
 import Units from "../../components/units";
 import Customers from "../../components/customers";
+import Video_ur from '@/public/images/Background.mp4'
 
 export default function Home() {
     useEffect(() => {
@@ -48,7 +49,7 @@ export default function Home() {
 
     return (
         <main className="page-home">
-            <ReactPlayer width="100vw" height="100vh" loop muted playing={true} url='https://ad-digitaltecnologia.com.br/materials/ADD_Set22_site.mp4' />
+            <ReactPlayer width="100vw" height="100vh" loop muted playing={true} url={Video_ur} />
             <section id="home" className='header'>
                 <Header />
                 <section className="home-description container-view animate left">

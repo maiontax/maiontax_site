@@ -1,15 +1,14 @@
 "use client"
 import { useRef, useState } from "react";
 import Title from "../../components/title";
-import 'altcha'
 import { useForm, SubmitHandler } from "react-hook-form"
 import Input from "@/src/components/input";
 import Link from "next/link";
-import Image from "next/image";
 import Icon_Linkedn from "@/src/Icon/linkedn";
-import { COLOR_PRIMARY, COLOR_SECONDARY } from "@/src/config/general";
+import { COLOR_PRIMARY } from "@/src/config/general";
 import Icon_Instagram from "@/src/Icon/instagram";
 import Button from "@/src/components/button";
+import 'altcha'
 
 type Inputs = {
     name: string

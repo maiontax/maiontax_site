@@ -8,6 +8,7 @@ import { BASE_URL } from "@/src/config/general";
 import { useEffect, useState } from "react";
 import Title from "../../../components/title";
 import Button from "../../../components/button";
+import { useParams } from 'next/navigation'
 
 
 export type PostItemType = {
@@ -21,11 +22,12 @@ export type PostItemType = {
 }
 
 export default function Blog() {
+    const params = useParams<{ id: string }>()
     const [post, setPost] = useState<PostItemType>()
 
     const getPosts = async () => {
         console.log("getPosts")
-        const response = await fetch(`${BASE_URL}/site/posts/1`)
+        const response = await fetch(`${BASE_URL}/site/posts/${params.id}`)
 
         const posts = await response.json()
 
@@ -44,7 +46,7 @@ export default function Blog() {
         <main className="page-blog container-view">
             <div className="container">
                 <div className="post-header">
-                    {post?.image_url && <Image src={post?.image_url} alt="Image" width={900} height={300} />}
+                    {post?.image_url && <Image src={`${BASE_URL}/site/posts/images/${post.image_url}`} alt="Image" width={400} height={400} />}
                     {/* <div className="breadcrumbs">
                             <a href="#">Home</a> / <a href="#">Blog</a> / <a href="#">Título do Post</a>
                         </div> */}
@@ -61,26 +63,30 @@ export default function Blog() {
                         </Link>
                     </div>
                     <div className="post-text">
-                        {post?.description && <span dangerouslySetInnerHTML={{ __html: post?.description }}></span>}
+                        <h5>Descrição</h5>
+                        {post?.description && <span>{post.description}</span>}
+                    </div>
+                    <div className="post-text">
+                        {post?.content && <span dangerouslySetInnerHTML={{ __html: post?.content }}></span>}
                     </div>
                 </div>
-                <div className="sidebar">
-                    <h3>Inscreva-se em nossa newsletter:</h3>
+                {/* <div className="sidebar"> */}
+                {/* <h3>Inscreva-se em nossa newsletter:</h3>
                     <form className="newsletter-form">
                         <label >Email*</label>
                         <input type="email" id="email" name="email" />
                         <label >Nome*</label>
                         <input type="text" id="name" name="name" />
                         <Button title="Enviar" />
-                    </form>
-                    {/* <h3>Os mais lidos</h3>
+                    </form> */}
+                {/* <h3>Os mais lidos</h3>
                         <ul className="most-read">
                             <li><a href="#">Como limitar a contribuição ao Sistema S à base de 20 salários mínimos?</a></li>
                             <li><a href="#">O que são encargos trabalhistas? Calcule o custo dos funcionários</a></li>
                             <li><a href="#">RAT ajustado: o que é e como calcular o da sua empresa</a></li>
                             <li><a href="#">Impostos sobre a folha de pagamento</a></li>
                         </ul> */}
-                </div>
+                {/* </div> */}
             </div>
         </main >
     )

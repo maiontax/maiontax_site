@@ -13,7 +13,7 @@ export default function Blog() {
 
         const posts = await response.json()
 
-        setPosts(posts)
+        setPosts(posts.data)
     }
 
     useEffect(() => {
@@ -58,7 +58,7 @@ function PostItem({ id, title, image_url, content, created_at, description, cate
         <div className="post-item">
             {image_url?.length &&
                 <div className="post-item-image">
-                    <Image width={400} height={300} src={image_url} alt={title} />
+                    <Image width={200} height={350} src={`${BASE_URL}/site/posts/images/${image_url}`} alt={title} />
                     <div className="item-image-cover">
                         <div className="tag">{category}</div>
                     </div>
@@ -66,7 +66,9 @@ function PostItem({ id, title, image_url, content, created_at, description, cate
             }
             <div className="post-data">
                 <h2 className="post-title">{title}</h2>
-                <span className="post-content" dangerouslySetInnerHTML={{ __html: description! }}></span>
+                <div className="post-description">
+                    <span className="post-content">{description}</span>
+                </div>
             </div>
             <div className="post-button">
                 <Button type="secondary" title="Leia mais" link={`/blog/${id}`} />

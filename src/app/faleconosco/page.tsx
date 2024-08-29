@@ -5,16 +5,18 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import Input from "@/src/components/input";
 import Link from "next/link";
 import Icon_Linkedn from "@/src/Icon/linkedn";
-import { COLOR_PRIMARY } from "@/src/config/general";
+import { BASE_URL, COLOR_PRIMARY } from "@/src/config/general";
 import Icon_Instagram from "@/src/Icon/instagram";
 import Button from "@/src/components/button";
-import { Altcha } from "react-altcha";
+import Captcha from "@/src/components/captcha";
 
 type Inputs = {
     name: string
     email: string
     phone: string
     message: string
+    ocupation: string
+    accetption: boolean
 }
 
 
@@ -29,20 +31,34 @@ export type PostItemType = {
 }
 
 export default function ContactUs() {
-    const [checked, setChecked] = useState<boolean>()
+    const [sending, setSending] = useState(false)
+    const [isSended, setIsSended] = useState(false)
+
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm<Inputs>()
-    const onSubmit: SubmitHandler<Inputs> = (data) => {
-        console.log("onSubmit", data)
-    }
 
-    const handleAcceptTerms = (e: any) => {
-        setChecked(e.target.checked)
-    }
 
+    const onSubmit: SubmitHandler<Inputs> = async (data) => {
+        setSending(true)
+
+        await fetch(`${BASE_URL}/site/leads`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+
+        setIsSended(true)
+
+        reset()
+
+        setSending(true)
+    }
 
     return (
         <main className="page-contactus container-view">
@@ -57,20 +73,30 @@ export default function ContactUs() {
             </div>
             <div className="container">
                 <div className="form">
-                    <form>
-                        <Input error={errors.name} {...register("name", { required: "Campo obrigatorio!" })} placeholder="Nome" label="Nome" />
-                        <Input type="email" error={errors.email} {...register("email", { required: "Campo obrigatorio!" })} placeholder="E-mail" label="E-mail" />
-                        <Input type="phone" error={errors.phone} {...register("phone", { required: "Campo obrigatorio!" })} placeholder="Telefone" label="Telefone" />
-                        <Input error={errors.message} {...register("message", { required: "Campo obrigatorio!" })} multipleLine placeholder="Mensagem" label="Mensagem" />
-                        <Altcha
-                            challengeurl={"https://example.com/api/captcha/challenge"}
-                            verifyurl={"https://example.com/api/captcha/verify"}
-                        />
-                        <div className="police-term"><input type="checkbox" onChange={handleAcceptTerms} />Li e Concordo com os termos de <Link href="/politica-privacidade">Política de Privacidade</Link> do site. </div>
-                    </form>
-                </div>
-                <div className="send-button">
-                    <Button title="Enviar" onClick={handleSubmit(onSubmit)} />
+                    {isSended ? (
+                        <div className="success-message">
+                            <h2>Mensagem enviada com sucesso!</h2>
+                            <h3>Obrigado por entrar em contato, retornaremos o mais breve possivel!</h3>
+                            <Button title="Voltar para home" link="/" />
+                        </div>
+                    ) : (
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <Input error={errors.name} register={register("name", { required: "Campo obrigatorio!" })} placeholder="Nome" label="Nome" />
+                            <Input type="email" error={errors.email} register={register("email", { required: "Campo obrigatorio!" })} placeholder="E-mail" label="E-mail" />
+                            <Input type="phone" error={errors.phone} register={register("phone", { required: "Campo obrigatorio!" })} placeholder="Telefone" label="Telefone" />
+                            <Input type="ocupation" error={errors.phone} register={register("ocupation", { required: "Campo obrigatorio!" })} placeholder="Profissão" label="Profissão" />
+                            <Input error={errors.message} register={register("message", { required: "Campo obrigatorio!" })} multipleLine placeholder="Mensagem" label="Mensagem" />
+                            <Captcha />
+                            <div className="police-term">
+                                <input type="checkbox" {...register("accetption", { required: "Campo obrigatorio!" })} />Li e Concordo com os termos de <Link className="link" href="/politica-privacidade">Política de Privacidade</Link> do site.
+                                {errors.accetption && <><br /><span className="error">{errors.accetption?.message}</span></>}
+                            </div>
+                            <div className="send-button">
+                                <Button title="Enviar" htmlType="submit" />
+                            </div>
+                        </form>
+                    )
+                    }
                 </div>
             </div>
         </main >

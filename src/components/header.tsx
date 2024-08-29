@@ -82,9 +82,9 @@ export default function Header() {
         <header className={`component-header container-view ${theme}`}>
             {theme === "transparent" && pathname === "/" && (
                 <div className='contact-container'>
-                    <Link href="tel:1142187960" className="cellphone-button" >
+                    <Link href="tel:1146552230" className="cellphone-button" >
                         <Image className="icon-cell" src={require("@/public/images/phone.svg")} alt='Phone' />
-                        <span>+55(11)4218-7960</span>
+                        <span>+55(11)4655-2230</span>
                     </Link>
 
                     <div className='social-container'>

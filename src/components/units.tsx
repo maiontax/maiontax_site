@@ -11,9 +11,9 @@ const units = [
   },
   {
     title: "Pinheiros - SP",
-    address: "Rua Amaro Cavalheiro, 347 - Pinheiros - SP",
+    address: "Avenida Brigadeiro Faria Lima, 1478, Cj. 914, Pinheiros, São Paulo - SP",
     district: "Pinheiros",
-    zipcode: "05425-011",
+    zipcode: "01472-900",
     phone: "+55 11 42187960",
     is_default: true
   },
@@ -31,7 +31,7 @@ export default function Units() {
     <section className="component-units container-view">
       <Title title="Unidades" type="secondary" />
       <div className="container-units">
-        <div className="component-units-items animate up">
+        <div className="component-units-items">
           {units.map((unit, index) => (
             <div key={index} className="unit">
               <h2>{unit.title}</h2>

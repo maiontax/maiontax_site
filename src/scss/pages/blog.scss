@@ -10,6 +10,7 @@
     .post-header {
         width: 100%;
         margin-bottom: 20px;
+        text-align: center;
     }
     
     .post-image {
@@ -74,6 +75,7 @@
     
     
     .post-text {
+        margin-top: 30px;
         font-size: 1.2rem;
         line-height: 1.6;
         text-align: justify;
@@ -193,6 +195,7 @@
     
             .post-data {
                 padding: 20px;
+                overflow: hidden;
     
                 p.date {
                     text-align: right;
@@ -203,6 +206,15 @@
     
                 .button-container {
                     margin-top: 20px;
+                }
+
+                .post-description {
+                    height: 100px;
+                    font-size: $font-small;
+                    color: $black;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
                 }
             }
     

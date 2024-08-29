@@ -6,14 +6,32 @@ type IButtonProps = {
     type?: "primary" | "secondary" | "third"
     link?: string
     onClick?: () => void
+    htmlType?: "submit" | "reset" | "button"
 }
 
-export default function Button({ title, type = "primary", link = "", onClick }: IButtonProps) {
+export default function Button({ ...rest }: IButtonProps) {
+    const Component = rest.link ? ButtonLink : ButtonSimple
+
     return (
-        <Link href={link} onClick={onClick}>
-            <button className={`button ${type}`} title={title}>
+        <Component {...rest} />
+    )
+}
+
+
+const ButtonSimple = ({ htmlType, type = "primary", title }: IButtonProps) => {
+    return (
+        <button type={htmlType} className={`button ${type}`} title={title}>
+            {title}
+        </button>
+    )
+}
+
+const ButtonLink = ({ type = "primary", title, onClick, link }: IButtonProps) => {
+    return (
+        <Link href={link!} onClick={onClick} style={{ textDecoration: "none" }}>
+            <div className={`button ${type}`}>
                 {title}
-            </button>
+            </div>
         </Link>
     )
 }

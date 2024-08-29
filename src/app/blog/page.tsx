@@ -26,7 +26,7 @@ export default function Blog() {
 
         const posts = await response.json()
 
-        setPosts(posts)
+        setPosts(posts.data)
     }
 
 
@@ -42,13 +42,15 @@ export default function Blog() {
                 <div className="container-posts">
                     {posts.map((post) => (
                         <div key={post.id} className="post-item">
-                            <Image width={1024} height={728} src={post.image_url!} alt="Imagem" />
+                            <Image width={1024} height={728} src={`${BASE_URL}/site/posts/images/${post.image_url}`} alt="Imagem" />
                             <div className="post-data">
                                 <Title align="left" border={false} type="secondary" title={post.title} />
                                 <p className="date">{new Date(post.created_at!).toLocaleDateString()}</p>
-                                <span className="post-description" dangerouslySetInnerHTML={{ __html: post.description! }}></span>
+                                <div className="post-description">
+                                    <span>{post.description}</span>
+                                </div>
                                 <div className="button-container">
-                                    <Button title="Continuar lendo" />
+                                    <Button link={`/blog/${post.id}`} title="Continuar lendo" />
                                 </div>
                             </div>
                         </div>

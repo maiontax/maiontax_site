@@ -41,8 +41,8 @@
 
         .post-item-image {
             .item-image-cover {
-                width: 400px;
-                height: 300px;
+                width: 200px;
+                height: 350px;
                 top: 0;
                 position: absolute;
             }
@@ -63,6 +63,8 @@
 
                 font-weight: bold;
                 color: $white;
+
+                box-shadow: 5px 5px 10px rgb(128, 127, 127) ;
             }
         }
 
@@ -75,12 +77,16 @@
     
 
         .post-data {
+            max-width: 300px;
+            width: 100%;
             color: $white;
             margin: 0 auto;
             background-color: $white;
             padding: 15px; 
             margin-top: -20px;
             border-radius: 0 0 5px 5px;
+            max-height: 100px;
+            text-overflow: ellipsis;
 
 
             h2.post-title {
@@ -89,9 +95,12 @@
                 margin-bottom: 10px;
             }
 
-            span.post-content {
+            .post-description {
                 font-size: $font-small;
                 color: $black;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
             }
          
             p.post-date {

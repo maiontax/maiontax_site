@@ -66,6 +66,12 @@ footer {
   }
 }
 
+a.link {
+  color: $secondary-color;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
 @import "./components";
 
 @import "./pages/home.scss";

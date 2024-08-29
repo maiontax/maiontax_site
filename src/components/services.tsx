@@ -22,11 +22,11 @@ const services = [
     {
         title: "Simples Nacional",
         description: "Restituição de créditos por bitributação de PIS e COFINS monofásicos.",
-        confirmation: "✓ Autopeças, farmácias, mercados, petshops, etc."
+        confirmation: "✓ Autopeças, farmácias, mercados, petshops, entre outros."
     },
     {
         title: "Exclusão de ICMS",
-        description: "Ajuda na adequação da base de faturamento para aplicação do PIS e COFINS e recuperação dos valores pagos a maior dos últimos cinco anos.",
+        description: "Adequação da base de faturamento para aplicação do PIS e COFINS e recuperação dos valores pagos a maior dos últimos cinco anos.",
         confirmation: "✓ Empresas do lucro real e presumido"
     },
     {
@@ -38,6 +38,21 @@ const services = [
         title: "Dívida Ativa",
         description: "Consulta, due diligence e negociação de débitos inscritos em dívida ativa, com descontos de até 70% e parcelamento em até 145 meses.",
         confirmation: "✓ Empresas do lucro real, presumido e simples nacional"
+    },
+    {
+        title: "Lei do Bem",
+        description: "Redução de tributos para empresas que investem em projetos de pesquisa, desenvolvimento e inovação (PD&I) com foco na inovação tecnológica.",
+        confirmation: "✓ Empresas do lucro real"
+    },
+    {
+        title: "Contencioso Tributário",
+        description: "Análise de Auto de Infração e Execução Fiscal com Enfoque na Defesa do Contribuinte: Proteção Completa em Todas as Esferas.",
+        confirmation: "✓ Aplica-se a todos os regimes tributários"
+    },
+    {
+        title: "IRPJ e CSLL",
+        description: "Identificação e correção de possíveis distorções nos ajustes fiscais, créditos de Juros sobre Capital Próprio (JCP),  Compensação de IRRF, entre outras possibilidades.",
+        confirmation: "✓ Empresas no lucro real"
     },
 ]
 

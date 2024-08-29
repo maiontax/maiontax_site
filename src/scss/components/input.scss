@@ -10,6 +10,7 @@
         padding: 0 10px;
         margin-bottom: 5px;
         font-weight: 600;
+        color: #585858;
     }
 
     input, textarea {
@@ -25,8 +26,10 @@
             border-color: $secondary-color;
         }
     }
+}
 
-    .error {
-        color: red;
-    }
+.error {
+    color: rgb(209, 91, 91);
+    font-size: $font-small;
+    font-weight: 400 !important;
 }

@@ -22,10 +22,7 @@ const nextConfig = {
         includePaths: ['./scss'],
     },
     images: {
-        domains: ['images.unsplash.com', "localhost"]
-    },
-    env: {
-        baseUrl: "http://localhost:3333"
+        domains: ['images.unsplash.com']
     }
 };
 

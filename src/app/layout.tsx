@@ -31,7 +31,13 @@ const cardo = Cardo({
 
 export const metadata: Metadata = {
   title: "Maion Tax",
-  description: "",
+  description: "Recuperação tributária eficiente, com 12 anos de experiência, a MAION TAX já recuperou mais de 500 milhões em tributos para empresas, oferecendo serviços rápidos e seguros. Confie na nossa expertise para maximizar a recuperação tributária do seu negócio.",
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    url: 'https://maiontax.com.br/',
+    siteName: 'Maion Tax',
+  },
 };
 
 export default function RootLayout({

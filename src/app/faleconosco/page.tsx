@@ -86,7 +86,7 @@ export default function ContactUs() {
                             <Input type="phone" error={errors.phone} register={register("phone", { required: "Campo obrigatorio!" })} placeholder="Telefone" label="Telefone" />
                             <Input type="ocupation" error={errors.phone} register={register("ocupation", { required: "Campo obrigatorio!" })} placeholder="Profissão" label="Profissão" />
                             <Input error={errors.message} register={register("message", { required: "Campo obrigatorio!" })} multipleLine placeholder="Mensagem" label="Mensagem" />
-                            <Captcha />
+                            <Captcha floating />
                             <div className="police-term">
                                 <input type="checkbox" {...register("accetption", { required: "Campo obrigatorio!" })} />Li e Concordo com os termos de <Link className="link" href="/politica-privacidade">Política de Privacidade</Link> do site.
                                 {errors.accetption && <><br /><span className="error">{errors.accetption?.message}</span></>}

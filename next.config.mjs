@@ -22,7 +22,7 @@ const nextConfig = {
         includePaths: ['./scss'],
     },
     images: {
-        domains: ['images.unsplash.com']
+        domains: ['images.unsplash.com', 'api.maiontech.com.br']
     }
 };
 

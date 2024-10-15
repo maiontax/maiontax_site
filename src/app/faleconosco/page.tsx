@@ -61,7 +61,7 @@ export default function ContactUs() {
     }
 
     return (
-        <main className="page-contactus container-view">
+        <main className="page-contactus container-view" style={{ paddingBottom: 200 }}>
             <Title title="Fale conosco" type="secondary" />
             <div className='social-container'>
                 <Link target='_blank' className="icon-social" href="https://www.linkedin.com/company/maion-tax-solu-es-tribut-rias-e-corporativas/posts/?feedView=all">

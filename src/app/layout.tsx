@@ -9,25 +9,22 @@ const poppins = Poppins({
   weight: ['400', "600", "700"],
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-poppins',
 })
 
 const montsserat = Montserrat({
   weight: ['400', "600", "700"],
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-montserrat',
 })
 
 const cardo = Cardo({
   weight: ["700"],
   subsets: ['latin'],
   display: 'swap',
+  variable: '--font-cardo',
 })
-
-// const raleway = Raleway({
-//   weight: ['400', "600", "700"],
-//   subsets: ['latin'],
-//   display: 'swap',
-// })
 
 export const metadata: Metadata = {
   title: "Maion Tax",
@@ -47,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${montsserat.className} ${poppins} ${cardo}`}>
+      <body className={`${montsserat.variable} ${poppins.variable} ${cardo.variable}`}>
         {children}</body>
     </html>
   );

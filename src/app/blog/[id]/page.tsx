@@ -57,7 +57,7 @@ export default function Blog() {
                         <Link className="icon-social" href="https://www.linkedin.com/company/maion-tax-solu-es-tribut-rias-e-corporativas/posts/?feedView=all" >
                             <Image color='#fff' src={LinkednIcon} alt='Linkedn' />
                         </Link>
-                        <Link className="icon-social" href="https://www.linkedin.com/company/maion-tax-solu-es-tribut-rias-e-corporativas/posts/?feedView=all" >
+                        <Link className="icon-social" href="https://www.instagram.com/maiontax/" >
                             <Image color='#fff' src={InstagramIcon} alt='Linkedn' />
                         </Link>
                     </div>

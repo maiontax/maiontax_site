@@ -28,6 +28,29 @@
                 font-weight: 700;
                 color: $white;
             }
+
+        }
+    }
+
+    @include desktop_down {
+        .header {
+            
+            .home-description {
+                margin-top: 70px !important;
+                
+                span.home-title {
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    color: $secondary-color;
+                }
+                
+                span.home-description {
+                    font-size: 1.4rem;
+                    font-weight: 700;
+                    color: $white;
+                }
+                
+            }
         }
     }
 }

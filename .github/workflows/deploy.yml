@@ -1,0 +1,32 @@
+name: Deploy to Droplet with Docker
+
+on:
+  push:
+    branches:
+      - main # Ou a branch que você quer monitorar
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: |
+          docker build -t pabloneres/maion-site:latest .
+
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push your_dockerhub_username/your_image_name:latest
+
+      - name: Deploy via SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H [DROPLET_IP] >> ~/.ssh/known_hosts
+          ssh [USER]@[DROPLET_IP] "docker pull your_dockerhub_username/your_image_name:latest && docker stop nextjs-app || true && docker rm nextjs-app || true && docker run -d --name nextjs-app -p 80:3000 your_dockerhub_username/your_image_name:latest"

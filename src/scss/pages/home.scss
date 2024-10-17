@@ -13,16 +13,17 @@
         position: absolute;
         background-color: #0d1d3aef;
 
+
         .home-description {
             max-width: 900px;
             margin-top: 200px;
-    
+
             span.home-title {
                 font-size: 3rem;
                 font-weight: 700;
                 color: $secondary-color;
             }
-    
+
             span.home-description {
                 font-size: 2rem;
                 font-weight: 700;
@@ -34,22 +35,22 @@
 
     @include desktop_down {
         .header {
-            
+
             .home-description {
                 margin-top: 70px !important;
-                
+
                 span.home-title {
                     font-size: 2.5rem;
                     font-weight: 700;
                     color: $secondary-color;
                 }
-                
+
                 span.home-description {
                     font-size: 1.4rem;
                     font-weight: 700;
                     color: $white;
                 }
-                
+
             }
         }
     }

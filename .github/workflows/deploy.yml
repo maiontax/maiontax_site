@@ -19,7 +19,7 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker push your_dockerhub_username/your_image_name:latest
+          docker push pabloneres/maion-site:latest
 
       - name: Deploy via SSH
         env:
@@ -28,5 +28,5 @@ jobs:
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H [DROPLET_IP] >> ~/.ssh/known_hosts
-          ssh [USER]@[DROPLET_IP] "docker pull your_dockerhub_username/your_image_name:latest && docker stop nextjs-app || true && docker rm nextjs-app || true && docker run -d --name nextjs-app -p 80:3000 your_dockerhub_username/your_image_name:latest"
+          ssh-keyscan -H 137.184.152.105 >> ~/.ssh/known_hosts
+          ssh root@137.184.152.105 "docker pull pabloneres/maion-site:latest && docker stop nextjs-app || true && docker rm nextjs-app || true && docker run -d --name nextjs-app -p 80:3005 pabloneres/maion-site:latest"

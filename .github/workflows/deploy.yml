@@ -17,4 +17,4 @@ jobs:
           username: ${{ secrets.DROPLET_USER }}
           password: ${{ secrets.DROPLET_PASS }}
           port: 22
-          script: cd ~/backend && bash deploy_script.sh
+          script: cd ~/site && bash deploy_script.sh

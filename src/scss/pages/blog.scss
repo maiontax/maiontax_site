@@ -225,6 +225,7 @@
         }
     }
 
+
     @include desktop_down {
         .container-posts {
             grid-template-columns: 1fr;

@@ -1,38 +1,37 @@
-name: Deploy to Droplet with Docker
+name: Deploy to DigitalOcean
 
 on:
   push:
     branches:
-      - main # Ou a branch que você quer monitorar
+      - main # Ou 'master', dependendo da sua branch principal
 
 jobs:
-  deploy:
-    runs-on: self-hosted
+  build:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Build Docker image
-        run: |
-          docker build -t pabloneres/maion-site:latest .
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18" # Versão do Node.js que você está usando
 
-      - name: Log in to Docker Hub
-        env:
-          DOCKER_USER: ${{ secrets.DOCKER_USER }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        run: echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
+      - name: Install dependencies
+        run: npm install
 
-      - name: Push Docker image to Docker Hub
-        run: |
-          docker push pabloneres/maion-site:latest
+      - name: Build Next.js app
+        run: npm run build
 
-      - name: Deploy via SSH
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 137.184.152.105 >> ~/.ssh/known_hosts
-          ssh root@137.184.152.105 "docker pull pabloneres/maion-site:latest && docker stop nextjs-app || true && docker rm nextjs-app || true && docker run -d --name nextjs-app -p 80:3005 pabloneres/maion-site:latest"
+      - name: Deploy to DigitalOcean Droplet
+        uses: appleboy/ssh-action@v0.1.1
+        with:
+          host: ${{ secrets.DROPLET_IP }}
+          username: ${{ secrets.DROPLET_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/site
+            git pull origin main
+            npm install
+            npm run build

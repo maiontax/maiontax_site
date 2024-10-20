@@ -1,37 +1,20 @@
-name: Deploy to DigitalOcean
+name: SSH Deploy
 
 on:
   push:
     branches:
-      - main # Ou 'master', dependendo da sua branch principal
+      - main
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18" # Versão do Node.js que você está usando
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build Next.js app
-        run: npm run build
-
-      - name: Deploy to DigitalOcean Droplet
-        uses: appleboy/ssh-action@v0.1.1
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.DROPLET_IP }}
           username: ${{ secrets.DROPLET_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd /var/www/site
-            git pull origin main
-            npm install
-            npm run build
+          password: ${{ secrets.DROPLET_PASS }}
+          port: 22
+          script: cd ~/backend && bash deploy_script.sh

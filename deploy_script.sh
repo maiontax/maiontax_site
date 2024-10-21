@@ -9,9 +9,9 @@ git pull || error_exit "Falha ao executar git pull"
 
 # Parar e iniciar os serviços Docker
 echo "Parando serviços Docker..."
-docker compose -f docker-compose.yml down
+docker build -t nextjs-docker .
 
 echo "Iniciando serviços Docker..."
-docker compose -f docker-compose.yml up -d
+docker run -p 3000:3005 nextjs-docker
 
 echo "Deploy concluído com sucesso!"

@@ -23,7 +23,8 @@ const nextConfig = {
     },
     images: {
         domains: ['images.unsplash.com', 'api.maiontech.com.br']
-    }
+    },
+    output: "standalone"
 };
 
 export default nextConfig;

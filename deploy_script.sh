@@ -4,8 +4,8 @@
 
 # Atualizar o repositório git
 echo "Atualizando o repositório git em ~/site..."
-cd ~/site || error_exit "Falha ao acessar o diretório ~/site"
-git pull || error_exit "Falha ao executar git pull"
+cd ~/site
+git pul
 
 # Parar e iniciar os serviços Docker
 echo "Parando serviços Docker..."

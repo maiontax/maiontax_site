@@ -16,6 +16,7 @@ const customers = [
     require("@/public/images/customer-12.png"),
     require("@/public/images/customer-13.png"),
     require("@/public/images/customer-14.png"),
+    require("@/public/images/customer-15.png"),
 ]
 
 export default function Customers() {

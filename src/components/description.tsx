@@ -5,7 +5,7 @@ export default function Description() {
         <section className="component-description container-view">
             <div className="description-franchisee animate left">
                 <h1>O maior honorário<br />do mercado</h1>
-                <span>Valorização dos franqueados a associados através da proximidade, ética e liderança com foco em resultados.</span>
+                <span>Valorização dos franqueados e associados através da proximidade, ética e liderança com foco em resultados.</span>
             </div>
             <div className="description-information animate right">
                 <Image src={require("@/public/images/graph-icon.png")} alt="Icon" />

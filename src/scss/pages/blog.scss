@@ -80,6 +80,46 @@
         font-size: 1.2rem;
         line-height: 1.6;
         text-align: justify;
+
+        /* Estilos básicos */
+
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+        text-align: justify;
+        margin: 0;
+        padding: 0;
+
+
+        /* Parágrafos */
+        p {
+            margin-bottom: 0.5em;
+        }
+
+        /* Títulos em negrito */
+        p strong {
+            font-size: 1.2em;
+            color: #000;
+        }
+
+        /* Listas */
+        ul {
+            padding-left: 1.5em;
+            margin-bottom: 0.5em;
+        }
+
+        ul li {
+            margin-bottom: 0.5em;
+        }
+
+        /* Informações de assinatura */
+        .signature {
+            font-style: italic;
+            color: #666;
+            margin-top: 1em;
+        }
+
     }
 
     .sidebar {

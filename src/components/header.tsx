@@ -128,6 +128,9 @@ export default function Header() {
                         <Link className={pathname === "/blog" ? 'active' : ''} href="/blog">BLOG</Link>
                     </li>
                     <li>
+                        <Link className={pathname === "/trabalhe-conosco" ? 'active' : ''} href="/trabalhe-conosco">TRABALHE CONOSCO</Link>
+                    </li>
+                    <li>
                         <Link className={pathname === "/crm" ? 'active' : ''} href="https://maiontech.com.br">CRM</Link>
                     </li>
                 </ul>

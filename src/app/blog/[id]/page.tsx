@@ -14,6 +14,7 @@ export type PostItemType = {
     id: string | number,
     title: string,
     created_at?: string,
+    updated_at?: string,
     image_url?: string,
     content?: string
     description?: string
@@ -25,7 +26,6 @@ export default function Blog() {
     const [post, setPost] = useState<PostItemType>()
 
     const getPosts = async () => {
-        console.log("getPosts")
         const response = await fetch(`${BASE_URL}/site/posts/${params.id}`)
 
         const posts = await response.json()
@@ -52,7 +52,7 @@ export default function Blog() {
                 </div>
                 <div className="post-content">
                     {post?.title && <Title align="left" type="secondary" title={post.title} />}
-                    {post?.created_at && <p className="post-date">{new Date(post?.created_at).toLocaleString()}</p>}
+                    {post?.created_at && <p className="post-date">atualizado em {new Date(post?.updated_at!).toLocaleString()}</p>}
                     <div className="share-buttons">
                         <Link className="icon-social" href="https://www.linkedin.com/company/maion-tax-solu-es-tribut-rias-e-corporativas/posts/?feedView=all" >
                             <Image color='#fff' src={LinkednIcon} alt='Linkedn' />

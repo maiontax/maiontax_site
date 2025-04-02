@@ -57,6 +57,37 @@
         display: flex;
         gap: 10px;
         margin-bottom: 20px;
+        align-items: center;
+
+        .like-count,
+        .comment-count {
+            color: #777;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+
+        .icon-wrapper {
+            position: relative;
+            margin-right: 15px;
+
+            .badge {
+                position: absolute;
+                top: -8px;
+                right: -8px;
+                background-color: $secondary-color;
+                color: white;
+                border-radius: 50%;
+                min-width: 18px;
+                height: 18px;
+                font-size: 0.7rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0 2px;
+                font-weight: bold;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            }
+        }
 
         .icon-social {
             display: flex;
@@ -67,6 +98,13 @@
             background-color: $secondary-color;
             border-radius: $border-radius;
             margin-left: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: darken($secondary-color, 10%);
+            }
 
             img {
                 width: 15px;
@@ -278,6 +316,239 @@
                     width: auto;
                     height: 100px;
                 }
+            }
+        }
+    }
+
+    // Estilos para a seção de comentários
+    .comments-section {
+        margin-top: 40px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .comment-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+
+            h4 {
+                margin-bottom: 15px;
+                font-size: 1.1rem;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+
+                label {
+                    display: block;
+                    margin-bottom: 5px;
+                    font-size: 0.9rem;
+                }
+
+                input,
+                textarea {
+                    width: 100%;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    font-family: inherit;
+                }
+
+                textarea {
+                    min-height: 120px;
+                }
+            }
+        }
+
+        .btn-comment {
+            background-color: $secondary-color;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: $border-radius;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+            margin-bottom: 30px;
+
+            &:hover {
+                background-color: darken($secondary-color, 10%);
+            }
+
+            &:disabled {
+                background-color: #cccccc;
+                cursor: not-allowed;
+            }
+        }
+
+        .comments-list {
+            margin-top: 30px;
+
+            .comment-item {
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+                margin-bottom: 15px;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .comment-header {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+
+                    h4 {
+                        font-size: 1rem;
+                        margin: 0;
+                    }
+
+                    span {
+                        font-size: 0.85rem;
+                        color: #777;
+                    }
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 0.95rem;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+
+    // Estilos para o modal nativo
+    .modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .modal-content {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 500px;
+        max-height: 90vh;
+        overflow: auto;
+        animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background-color: $secondary-color;
+        color: white;
+        border-radius: 8px 8px 0 0;
+
+        h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    .modal-form {
+        padding: 20px;
+
+        .form-group {
+            margin-bottom: 15px;
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-family: inherit;
+                font-size: 0.95rem;
+
+                &:focus {
+                    border-color: $secondary-color;
+                    outline: none;
+                }
+            }
+
+            textarea {
+                min-height: 120px;
+                resize: vertical;
+            }
+        }
+
+        .btn-modal {
+            background-color: $secondary-color;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            border-radius: $border-radius;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+            margin-top: 10px;
+
+            &:hover {
+                background-color: darken($secondary-color, 10%);
+            }
+
+            &:disabled {
+                background-color: #cccccc;
+                cursor: not-allowed;
             }
         }
     }

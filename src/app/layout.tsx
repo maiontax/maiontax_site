@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import Head from 'next/head';
 import { Poppins, Montserrat, Cardo } from "next/font/google";
 import "../scss/_global.scss"
 import 'animate.css';
 import { Suspense } from "react";
 import { FacebookPixelEvents } from "../components/pixel-events";
 import Script from "next/script";
+import Image from "next/image";
+import Link from "next/link";
 
 
 const poppins = Poppins({
@@ -50,7 +51,13 @@ export default function RootLayout({
       <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W5XZX7Z4"
         height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
       <body className={`${montsserat.variable} ${poppins.variable} ${cardo.variable}`}>
-        {children}</body>
+        {children}
+        <div className="whatsapp">
+          <Link href="https://wa.me/551142187960" target="_blank">
+            <Image src="/images/whatsapp.png" alt="Whatsapp" width={70} height={70} />
+          </Link>
+        </div>
+      </body>
       <Suspense fallback={null}>
         <FacebookPixelEvents />
       </Suspense>

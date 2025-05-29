@@ -12,6 +12,7 @@ import Title from "../../../components/title";
 import { useParams } from 'next/navigation'
 import Captcha from "@/src/components/captcha";
 import { text } from "stream/consumers";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export type PostItemType = {
     id: string | number,
@@ -469,6 +470,7 @@ export default function Blog() {
                     </div>
                 </div>
             )}
+            <GoogleTagManager gtmId="GTM-TT3HWN64" />
         </main>
     )
 }   

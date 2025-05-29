@@ -55,11 +55,11 @@ export default function RootLayout({
             <Image src="/images/whatsapp.png" alt="Whatsapp" width={70} height={70} />
           </Link>
         </div>
+        <GoogleTagManager gtmId="GTM-TT3HWN64" />
       </body>
       <Suspense fallback={null}>
         <FacebookPixelEvents />
       </Suspense>
-      <GoogleTagManager gtmId="GTM-TT3HWN64" />
     </html>
   );
 }

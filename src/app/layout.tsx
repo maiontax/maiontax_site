@@ -4,10 +4,9 @@ import "../scss/_global.scss"
 import 'animate.css';
 import { Suspense } from "react";
 import { FacebookPixelEvents } from "../components/pixel-events";
-import Script from "next/script";
 import Image from "next/image";
 import Link from "next/link";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 
 const poppins = Poppins({
@@ -49,7 +48,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <GoogleAnalytics gaId="GTM-TT3HWN64" />
       <body className={`${montsserat.variable} ${poppins.variable} ${cardo.variable}`}>
         {children}
         <div className="whatsapp">
@@ -61,6 +59,7 @@ export default function RootLayout({
       <Suspense fallback={null}>
         <FacebookPixelEvents />
       </Suspense>
+      <GoogleTagManager gtmId="GTM-TT3HWN64" />
     </html>
   );
 }

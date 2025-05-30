@@ -9,7 +9,6 @@ import { BASE_URL, COLOR_PRIMARY } from "@/src/config/general";
 import Icon_Instagram from "@/src/Icon/instagram";
 import Button from "@/src/components/button";
 import Captcha from "@/src/components/captcha";
-import { sendGTMEvent } from "@next/third-parties/google";
 import { useRouter } from "next/navigation";
 
 type Inputs = {
@@ -62,13 +61,12 @@ export default function ContactUs() {
             }
 
             if (response.ok) {
-                setIsSended(true)
 
                 reset()
 
-                setSending(true)
+                setSending(false)
 
-                router.push('faleconosco/obrigado')
+                router.push('obrigado')
             }
 
         } catch (error) {
@@ -89,30 +87,21 @@ export default function ContactUs() {
             </div>
             <div className="container">
                 <div className="form">
-                    {isSended ? (
-                        <div className="success-message">
-                            <h2>Mensagem enviada com sucesso!</h2>
-                            <h3>Obrigado por entrar em contato, retornaremos o mais breve possivel!</h3>
-                            <Button title="Voltar para home" link="/" />
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <Input error={errors.name} register={register("name", { required: "Campo obrigatorio!" })} placeholder="Nome" label="Nome" />
+                        <Input type="email" error={errors.email} register={register("email", { required: "Campo obrigatorio!" })} placeholder="E-mail" label="E-mail" />
+                        <Input type="phone" error={errors.phone} register={register("phone", { required: "Campo obrigatorio!" })} placeholder="Telefone" label="Telefone" />
+                        <Input type="ocupation" error={errors.phone} register={register("ocupation", { required: "Campo obrigatorio!" })} placeholder="Profissão" label="Profissão" />
+                        <Input error={errors.message} register={register("message", { required: "Campo obrigatorio!" })} multipleLine placeholder="Mensagem" label="Mensagem" />
+                        <Captcha floating />
+                        <div className="police-term">
+                            <input type="checkbox" {...register("accetption", { required: "Campo obrigatorio!" })} />Li e Concordo com os termos de <Link className="link" href="/politica-privacidade">Política de Privacidade</Link> do site.
+                            {errors.accetption && <><br /><span className="error">{errors.accetption?.message}</span></>}
                         </div>
-                    ) : (
-                        <form onSubmit={handleSubmit(onSubmit)}>
-                            <Input error={errors.name} register={register("name", { required: "Campo obrigatorio!" })} placeholder="Nome" label="Nome" />
-                            <Input type="email" error={errors.email} register={register("email", { required: "Campo obrigatorio!" })} placeholder="E-mail" label="E-mail" />
-                            <Input type="phone" error={errors.phone} register={register("phone", { required: "Campo obrigatorio!" })} placeholder="Telefone" label="Telefone" />
-                            <Input type="ocupation" error={errors.phone} register={register("ocupation", { required: "Campo obrigatorio!" })} placeholder="Profissão" label="Profissão" />
-                            <Input error={errors.message} register={register("message", { required: "Campo obrigatorio!" })} multipleLine placeholder="Mensagem" label="Mensagem" />
-                            <Captcha floating />
-                            <div className="police-term">
-                                <input type="checkbox" {...register("accetption", { required: "Campo obrigatorio!" })} />Li e Concordo com os termos de <Link className="link" href="/politica-privacidade">Política de Privacidade</Link> do site.
-                                {errors.accetption && <><br /><span className="error">{errors.accetption?.message}</span></>}
-                            </div>
-                            <div className="send-button">
-                                <Button title="Enviar" htmlType="submit" />
-                            </div>
-                        </form>
-                    )
-                    }
+                        <div className="send-button">
+                            <Button title="Enviar" htmlType="submit" />
+                        </div>
+                    </form>
                 </div>
             </div>
         </main >

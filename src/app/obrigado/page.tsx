@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form"
 import Input from "@/src/components/input";
 import Link from "next/link";
@@ -32,15 +32,14 @@ export type PostItemType = {
 }
 
 export default function ContactUs() {
-    const [sending, setSending] = useState(false)
-    const [isSended, setIsSended] = useState(false)
-
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { errors },
-    } = useForm<Inputs>()
+    useEffect(() => {
+        sendGTMEvent({
+            event: "form_submission_success",
+            event_action: "submit",
+            event_category: "engagement",
+            event_label: "contact_us_page",
+        })
+    }, [])
 
     return (
         <main className="page-contactus container-view" style={{ paddingBottom: 200 }}>

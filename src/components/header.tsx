@@ -86,9 +86,10 @@ export default function Header() {
                     <Link onClick={() => {
                         sendGTMEvent({
                             event: "click_phone_button",
+                            event_action: "click",
                             event_category: "engagement",
                             event_label: "phone_button",
-                            value: 1,
+                            value: "+55(11)4655-2230",
                         });
                     }}
                         href="tel:1146552230"

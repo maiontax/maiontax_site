@@ -62,9 +62,10 @@ export default function ContactUs() {
             if (response.ok) {
                 sendGTMEvent({
                     event: "send_form_data",
+                    event_action: "submit",
                     event_category: "engagement",
                     event_label: "contact_us_form",
-                    value: 1,
+                    value: "Fale conosco",
                 });
 
                 setIsSended(true)

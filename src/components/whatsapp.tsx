@@ -9,10 +9,11 @@ export default function WhatsApp() {
         <div
             onClick={() => {
                 sendGTMEvent({
-                    event: "click_phone_button",
+                    event: "whatsapp_button_click",
+                    event_action: "click",
                     event_category: "engagement",
-                    event_label: "phone_button",
-                    value: 1,
+                    event_label: "whatsapp_button",
+                    value: "https://wa.me/551142187960",
                 });
             }}
             className="whatsapp"

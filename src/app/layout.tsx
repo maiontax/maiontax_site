@@ -3,12 +3,12 @@ import { Poppins, Montserrat, Cardo } from "next/font/google";
 import "../scss/_global.scss"
 import 'animate.css';
 import { Suspense } from "react";
-import { FacebookPixelEvents } from "../components/pixel-events";
 import Image from "next/image";
 import Link from "next/link";
 import { GoogleTagManager } from '@next/third-parties/google'
 import WhatsApp from "../components/whatsapp";
 import PageTracker from "../components/pageTracker";
+import PixelTracker from "../components/pixelTracker";
 
 
 const poppins = Poppins({
@@ -57,7 +57,7 @@ export default function RootLayout({
       </body>
       <Suspense fallback={null}>
         <PageTracker />
-        <FacebookPixelEvents />
+        <PixelTracker />
       </Suspense>
     </html>
   );

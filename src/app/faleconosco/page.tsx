@@ -9,6 +9,7 @@ import { BASE_URL, COLOR_PRIMARY } from "@/src/config/general";
 import Icon_Instagram from "@/src/Icon/instagram";
 import Button from "@/src/components/button";
 import Captcha from "@/src/components/captcha";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 type Inputs = {
     name: string
@@ -45,19 +46,37 @@ export default function ContactUs() {
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         setSending(true)
 
-        await fetch(`${BASE_URL}/site/leads`, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
+        try {
+            const response = await fetch(`${BASE_URL}/site/leads`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
 
-        setIsSended(true)
+            if (!response.ok) {
+                throw new Error('Failed to send data')
+            }
 
-        reset()
+            if (response.ok) {
+                sendGTMEvent({
+                    event: "send_form_data",
+                    event_category: "engagement",
+                    event_label: "contact_us_form",
+                    value: 1,
+                });
 
-        setSending(true)
+                setIsSended(true)
+
+                reset()
+
+                setSending(true)
+            }
+
+        } catch (error) {
+            console.error('Error sending form data:', error)
+        }
     }
 
     return (

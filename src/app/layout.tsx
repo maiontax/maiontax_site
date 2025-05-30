@@ -7,6 +7,7 @@ import { FacebookPixelEvents } from "../components/pixel-events";
 import Image from "next/image";
 import Link from "next/link";
 import { GoogleTagManager } from '@next/third-parties/google'
+import WhatsApp from "../components/whatsapp";
 
 
 const poppins = Poppins({
@@ -50,11 +51,7 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={`${montsserat.variable} ${poppins.variable} ${cardo.variable}`}>
         {children}
-        <div className="whatsapp">
-          <Link href="https://wa.me/551142187960" target="_blank">
-            <Image src="/images/whatsapp.png" alt="Whatsapp" width={70} height={70} />
-          </Link>
-        </div>
+        <WhatsApp />
         <GoogleTagManager gtmId="GTM-TT3HWN64" />
       </body>
       <Suspense fallback={null}>

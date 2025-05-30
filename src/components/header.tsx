@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import PhoneIcon from "@/public/images/phone.svg";
 import LinkednIcon from "@/public/images/linkedin.svg";
 import InstagramIcon from "@/public/images/instagram.svg";
+import { sendGTMEvent } from '@next/third-parties/google'
 
 export default function Header() {
     const pathname = usePathname();
@@ -82,7 +83,17 @@ export default function Header() {
         <header className={`component-header container-view ${theme}`}>
             {theme === "transparent" && pathname === "/" && (
                 <div className='contact-container'>
-                    <Link href="tel:1146552230" className="cellphone-button" >
+                    <Link onClick={() => {
+                        sendGTMEvent({
+                            event: "click_phone_button",
+                            event_category: "engagement",
+                            event_label: "phone_button",
+                            value: 1,
+                        });
+                    }}
+                        href="tel:1146552230"
+                        className="cellphone-button"
+                    >
                         <Image className="icon-cell" src={require("@/public/images/phone.svg")} alt='Phone' />
                         <span>+55(11)4655-2230</span>
                     </Link>

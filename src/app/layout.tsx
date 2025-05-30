@@ -3,12 +3,11 @@ import { Poppins, Montserrat, Cardo } from "next/font/google";
 import "../scss/_global.scss"
 import 'animate.css';
 import { Suspense } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { GoogleTagManager } from '@next/third-parties/google'
 import WhatsApp from "../components/whatsapp";
 import PageTracker from "../components/pageTracker";
-import PixelTracker from "../components/pixelTracker";
+import dynamic from "next/dynamic";
+const PixelTracker = dynamic(() => import("../components/pixelTracker"), { ssr: false });
 
 
 const poppins = Poppins({
@@ -50,14 +49,43 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
+      <head>
+        {/* Meta Pixel Code */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?                         
+              n.callMethod.apply(n,arguments):n.queue.push   
+              (arguments)}; if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!
+              0;n.version='2.0';n.queue=[];t=b.createElement(e);
+              t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,
+              'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '870309275302770');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=870309275302770&ev=
+            PageView&noscript=1"/>
+        </noscript>
+        {/* End Meta Pixel Code */}
+      </head>
       <body className={`${montsserat.variable} ${poppins.variable} ${cardo.variable}`}>
+        <PixelTracker />
         {children}
         <WhatsApp />
         <GoogleTagManager gtmId="GTM-TT3HWN64" />
       </body>
       <Suspense fallback={null}>
         <PageTracker />
-        <PixelTracker />
       </Suspense>
     </html>
   );

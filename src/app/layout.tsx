@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { GoogleTagManager } from '@next/third-parties/google'
 import WhatsApp from "../components/whatsapp";
+import PageTracker from "../components/pageTracker";
 
 
 const poppins = Poppins({
@@ -55,6 +56,7 @@ export default function RootLayout({
         <GoogleTagManager gtmId="GTM-TT3HWN64" />
       </body>
       <Suspense fallback={null}>
+        <PageTracker />
         <FacebookPixelEvents />
       </Suspense>
     </html>

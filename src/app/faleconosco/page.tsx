@@ -10,6 +10,7 @@ import Icon_Instagram from "@/src/Icon/instagram";
 import Button from "@/src/components/button";
 import Captcha from "@/src/components/captcha";
 import { sendGTMEvent } from "@next/third-parties/google";
+import { useRouter } from "next/navigation";
 
 type Inputs = {
     name: string
@@ -34,6 +35,7 @@ export type PostItemType = {
 export default function ContactUs() {
     const [sending, setSending] = useState(false)
     const [isSended, setIsSended] = useState(false)
+    const router = useRouter()
 
     const {
         register,
@@ -60,19 +62,13 @@ export default function ContactUs() {
             }
 
             if (response.ok) {
-                sendGTMEvent({
-                    event: "send_form_data",
-                    event_action: "submit",
-                    event_category: "engagement",
-                    event_label: "contact_us_form",
-                    value: "Fale conosco",
-                });
-
                 setIsSended(true)
 
                 reset()
 
                 setSending(true)
+
+                router.push('faleconosco/obrigado')
             }
 
         } catch (error) {

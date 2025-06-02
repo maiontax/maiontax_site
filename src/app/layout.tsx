@@ -79,12 +79,14 @@ export default function RootLayout({
         {/* End Meta Pixel Code */}
       </head>
       <body className={`${montsserat.variable} ${poppins.variable} ${cardo.variable}`}>
+        <GoogleTagManager gtmId="GTM-TT3HWN64" />
         <PixelTracker />
-        <PageTracker />
         {children}
         <WhatsApp />
-        <GoogleTagManager gtmId="GTM-TT3HWN64" />
       </body>
+      <Suspense fallback={null}>
+        <PageTracker />
+      </Suspense>
     </html>
   );
 }

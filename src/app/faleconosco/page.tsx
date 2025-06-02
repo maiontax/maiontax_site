@@ -66,7 +66,7 @@ export default function ContactUs() {
 
                 setSending(false)
 
-                router.push('obrigado')
+                window.location.href = "https://maiontax.com.br/obrigado";
             }
 
         } catch (error) {

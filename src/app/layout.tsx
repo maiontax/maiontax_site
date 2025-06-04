@@ -8,6 +8,7 @@ import WhatsApp from "../components/whatsapp";
 import PageTracker from "../components/pageTracker";
 import dynamic from "next/dynamic";
 const PixelTracker = dynamic(() => import("../components/pixelTracker"), { ssr: false });
+import { LinkedInInsightTag } from 'nextjs-linkedin-insight-tag'
 
 
 const poppins = Poppins({
@@ -81,6 +82,7 @@ export default function RootLayout({
       <body className={`${montsserat.variable} ${poppins.variable} ${cardo.variable}`}>
         <GoogleTagManager gtmId="GTM-TT3HWN64" />
         <PixelTracker />
+        <LinkedInInsightTag />
         {children}
         <WhatsApp />
       </body>

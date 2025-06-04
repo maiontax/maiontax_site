@@ -89,14 +89,14 @@ export default function Header() {
                             event_action: "click",
                             event_category: "engagement",
                             event_label: "phone_button",
-                            value: "+55(11)4655-2230",
+                            value: "+55(11)91790-2540",
                         });
                     }}
-                        href="tel:1146552230"
+                        href="tel:11917902540"
                         className="cellphone-button"
                     >
                         <Image className="icon-cell" src={require("@/public/images/phone.svg")} alt='Phone' />
-                        <span>+55(11)4655-2230</span>
+                        <span>+55(11) 91790-2540</span>
                     </Link>
 
                     <div className='social-container'>
